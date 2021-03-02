@@ -259,8 +259,8 @@ def migrate_old_state():
 
 
 def main():
-    api_key = config.get(USER_CFG_SECTION, 'api_key')
-    api_secret_key = config.get(USER_CFG_SECTION, 'api_secret_key')
+    api_key = os.getenv("API_KEY")
+    api_secret_key = os.getenv("API_SECRET_KEY")
     tld = config.get(USER_CFG_SECTION, 'tld')
 
     client = BinanceAPIManager(api_key, api_secret_key, tld, logger)
